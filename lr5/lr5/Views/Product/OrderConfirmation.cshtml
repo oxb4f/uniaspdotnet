@@ -1,0 +1,10 @@
+@model lr5.ViewModels.OrderDetailViewModel
+
+<h2>Order Confirmation</h2>
+
+@foreach (var product in Model.Products)
+{
+    <p>Product: @product.Name - Price: @product.Price</p>
+}
+
+<p>Thank you for your order!</p>

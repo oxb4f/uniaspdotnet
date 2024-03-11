@@ -1,0 +1,10 @@
+@model lr5.ViewModels.ProductQuantityViewModel
+
+<form action="/Product/SelectQuantity" method="post">
+    <div class="form-group">
+        <label for="Quantity">Кількість</label>
+        <input type="number" id="Quantity" name="Quantity" class="form-control" />
+        <span class="text-danger"></span> 
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
