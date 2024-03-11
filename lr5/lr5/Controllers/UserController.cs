@@ -21,7 +21,6 @@ public class UserController : Controller
                 return RedirectToAction("SelectQuantity", "Product");
             }
         }
-        // return View(user);
-        return Json(user);
+        return View(user);
     }
 }
