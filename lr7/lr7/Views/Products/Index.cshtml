@@ -1,0 +1,28 @@
+@model IEnumerable<lr7.Models.Product>
+
+<h2>Products List</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.ID. @item.Name - @item.Price$ (@item.CreatedDate.ToShortDateString())</li>
+    }
+</ul>
+
+<h2>Products Table</h2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Created Date</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.CreatedDate.ToShortDateString()</td>
+        </tr>
+    }
+</table>
