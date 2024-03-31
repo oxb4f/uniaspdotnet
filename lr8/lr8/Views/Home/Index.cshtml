@@ -1,0 +1,9 @@
+@model IEnumerable<lr8.Models.Product>
+
+<h1>Головна сторінка</h1>
+
+<h2>Продукти:</h2>
+@await Component.InvokeAsync("Products", new { products = Model })
+
+<h2>Погода:</h2>
+@await Component.InvokeAsync("Weather", new { city = "Kyiv" })
