@@ -1,0 +1,54 @@
+@model lr9.Models.ConsultationRegistration
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Реєстрація на консультацію</title>
+</head>
+<body>
+<div class="container">
+    <h2>Реєстрація на консультацію</h2>
+
+    @using (Html.BeginForm("Register", "Consultation", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FullName, "Ім'я та прізвище:")
+            @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, "Email:")
+            @Html.TextBoxFor(model => model.Email, new { @type = "email", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DesiredDate, "Бажана дата консультації:")
+            @Html.TextBoxFor(model => model.DesiredDate, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DesiredDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product, "Продукт:")
+            @Html.DropDownListFor(model => model.Product, new SelectList(
+                new List<object>
+                {
+                    new { value = "JavaScript", text = "JavaScript" },
+                    new { value = "C#", text = "C#" },
+                    new { value = "Java", text = "Java" },
+                    new { value = "Python", text = "Python" },
+                    new { value = "Основи", text = "Основи" }
+                }, "value", "text", 1))
+            @Html.ValidationMessageFor(model => model.Product)
+        </div>
+
+        <button type="submit" class="btn btn-primary">Зареєструватися</button>
+    }
+</div>
+</body>
+</html>
